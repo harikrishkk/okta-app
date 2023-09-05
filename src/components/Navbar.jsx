@@ -1,8 +1,8 @@
-import { useOktaAuth } from '@okta/okta-react';
-import React from 'react';
-import { useHistory, Link } from 'react-router-dom';
-import { Image, Menu } from 'semantic-ui-react';
-import logo from './logo.svg';
+import { useOktaAuth } from "@okta/okta-react";
+import React from "react";
+import { useHistory, Link } from "react-router-dom";
+import { Image, Menu } from "semantic-ui-react";
+import logo from "../logo.svg";
 
 const Navbar = ({ setCorsErrorModalOpen }) => {
   const history = useHistory();
@@ -10,19 +10,19 @@ const Navbar = ({ setCorsErrorModalOpen }) => {
 
   // Note: Can't distinguish CORS error from other network errors
   const isCorsError = (err) =>
-    err.name === 'AuthApiError' &&
+    err.name === "AuthApiError" &&
     !err.errorCode &&
-    err.xhr.message === 'Failed to fetch';
+    err.xhr.message === "Failed to fetch";
 
   const login = async () => {
-    console.log('Navigate to profile..');
-    history.push('/login');
+    console.log("Navigate to profile..");
+    history.push("/login");
   };
 
   const logout = async () => {
     const basename =
-      window.location.origin + history.createHref({ pathname: '/' });
-    console.log('base name is', basename);
+      window.location.origin + history.createHref({ pathname: "/" });
+    console.log("base name is", basename);
     try {
       await oktaAuth.signOut({ postLogoutRedirectUri: basename });
     } catch (err) {

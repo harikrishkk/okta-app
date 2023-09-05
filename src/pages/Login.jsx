@@ -1,8 +1,8 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
-import OktaSignInWidget from './OktaSignInWidget';
-import { useOktaAuth } from '@okta/okta-react';
-import { Image } from 'semantic-ui-react';
+import React from "react";
+import { Redirect } from "react-router-dom";
+import OktaSignInWidget from "../components/OktaSignInWidget";
+import { useOktaAuth } from "@okta/okta-react";
+import { Image } from "semantic-ui-react";
 
 const Login = ({ config }) => {
   const { oktaAuth, authState } = useOktaAuth();
@@ -11,7 +11,7 @@ const Login = ({ config }) => {
   };
 
   const onError = (err) => {
-    console.log('Sign in error:', err);
+    console.log("Sign in error:", err);
   };
 
   if (!authState) {
@@ -19,7 +19,7 @@ const Login = ({ config }) => {
   }
 
   return authState.isAuthenticated ? (
-    <Redirect to={{ pathname: '/' }} />
+    <Redirect to={{ pathname: "/" }} />
   ) : (
     <div className="login-wrapper">
       <div className="image-wrapper">

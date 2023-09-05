@@ -1,5 +1,5 @@
-import React from 'react';
-import PrivacyModal from './PrivacyModal';
+import React from "react";
+import PrivacyModal from "../components/PrivacyModal";
 
 const Terms = () => {
   return (

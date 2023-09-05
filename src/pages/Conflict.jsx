@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Message } from 'semantic-ui-react';
-import { Button, Form } from 'semantic-ui-react';
-import axios from 'axios';
-import AlertMessage from './AlertMessage';
-import Spinner from './Spinner';
+import React, { useState } from "react";
+import { Message } from "semantic-ui-react";
+import { Button, Form } from "semantic-ui-react";
+import axios from "axios";
+import AlertMessage from "../components/AlertMessage";
+import Spinner from "../components/Spinner";
 
 const Conflict = () => {
   const [emailSuccess, setEmailSuccess] = useState(false);
-  const [userEmail, setUserEmail] = useState('');
+  const [userEmail, setUserEmail] = useState("");
   const [progress, setProgress] = useState(false);
   const [code, setCode] = useState(null);
   const [mergeSuccess, setMergeSuccess] = useState(false);
@@ -16,12 +16,12 @@ const Conflict = () => {
     setProgress(true);
     axios
       .post(
-        'https://humber-poc-cgi.workflows.okta.com/api/flo/d856674875d68127e1c45e8daa479556/invoke',
+        "https://humber-poc-cgi.workflows.okta.com/api/flo/d856674875d68127e1c45e8daa479556/invoke",
         {
           alternateemail: userEmail,
-          firstName: 'Srijith',
-          lastName: 'sarman',
-          email: 'srijith.sarman@gmail.com',
+          firstName: "Srijith",
+          lastName: "sarman",
+          email: "srijith.sarman@gmail.com",
         }
       )
       .then((res) => {
@@ -31,7 +31,7 @@ const Conflict = () => {
       .catch((err) => {
         setProgress(false);
         setEmailSuccess(false);
-        console.error('ERR', err);
+        console.error("ERR", err);
       });
   };
 
@@ -39,12 +39,12 @@ const Conflict = () => {
     setProgress(true);
     axios
       .post(
-        'https://humber-poc-cgi.workflows.okta.com/api/flo/d856674875d68127e1c45e8daa479556/invoke',
+        "https://humber-poc-cgi.workflows.okta.com/api/flo/d856674875d68127e1c45e8daa479556/invoke",
         {
           alternateemail: userEmail,
-          firstName: 'Srijith',
-          lastName: 'sarman',
-          email: 'srijith.sarman@gmail.com',
+          firstName: "Srijith",
+          lastName: "sarman",
+          email: "srijith.sarman@gmail.com",
           code: code,
         }
       )
@@ -55,7 +55,7 @@ const Conflict = () => {
       .catch((err) => {
         setProgress(false);
         setMergeSuccess(false);
-        console.error('ERR', err);
+        console.error("ERR", err);
       });
   };
 
