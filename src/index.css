@@ -1,13 +1,81 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  min-height: 100vh;
+}
+
+.login-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  padding-top: 40px;
+}
+
+.login-wrapper .image-wrapper {
+  flex-grow: 1;
+  max-width: 60vw;
+  display: flex;
+}
+
+.login-wrapper .login-widget {
+  flex-grow: 1;
+  align-items: center;
+  align-content: center;
+}
+
+.login-wrapper .login-widget > .widgetRender {
+  margin-top: 10%;
+}
+
+.humberImg {
+  max-width: 100%;
+}
+
+#home {
+  min-height: 100vh;
+  padding-top: 60px;
+  max-width: 1024px;
+  margin: 0px auto;
+}
+
+.home-header {
+  margin: auto;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.general-wrapper {
+  width: 1024px;
+  margin: 0 auto;
+  padding-top: 60px;
+  margin-top: 30px;
+}
+
+.consent {
+  margin-top: 20px;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: #ff3d00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
