@@ -1,14 +1,14 @@
 import logo from './humber.svg';
 const config = {
   oidc: {
-    issuer: 'https://dev-84219609.okta.com/oauth2/default',
-    clientId: '0oab0pgid9sFf5ZSq5d7',
+    issuer: process.env.REACT_APP_ISSUER,
+    clientId: process.env.REACT_APP_CLIENT_ID,
     scopes: ['openid', 'profile', 'email'],
     redirectUri: `${window.location.origin}/login/callback`,
   },
   widget: {
-    issuer: 'https://dev-84219609.okta.com/oauth2/default',
-    clientId: '0oab0pgid9sFf5ZSq5d7',
+    issuer: process.env.REACT_APP_ISSUER,
+    clientId: process.env.REACT_APP_CLIENT_ID,
     redirectUri: `${window.location.origin}/login/callback`,
     logo: logo,
     scopes: ['openid', 'profile', 'email'],
