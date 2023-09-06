@@ -9,7 +9,7 @@ const Registration = () => {
     firstName: "",
     lastName: "",
     email: "",
-    isAccepted: false,
+    userConsent: false,
   });
   const [user, setUser] = useState(null);
   const handleChange = (e) => {
@@ -18,7 +18,7 @@ const Registration = () => {
   };
 
   const handleAccept = (isAccepted) => {
-    setFormData({ ...formData, isAccepted: isAccepted });
+    setFormData({ ...formData, userConsent: isAccepted });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,7 +37,7 @@ const Registration = () => {
             lastName: formData.lastName,
             email: formData.email,
             login: formData.email,
-            tncAccepted: formData.isAccepted,
+            userConsent: formData.userConsent,
           },
         },
         { headers }
