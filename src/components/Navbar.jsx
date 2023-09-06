@@ -46,7 +46,7 @@ const Navbar = ({ setCorsErrorModalOpen }) => {
         </Menu.Item>
         <Menu.Item header>
           &nbsp;
-          <Link to="/registration">New User</Link>
+          <Link to="/newapp"> App 2</Link>
         </Menu.Item>
 
         <Menu.Menu position="right">

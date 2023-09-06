@@ -5,6 +5,7 @@ import AlertMessage from "../components/AlertMessage";
 import TermsConditions from "../components/TermsConditions";
 import logo from "../humber.svg";
 import { Image } from "semantic-ui-react";
+import { useHistory } from "react-router-dom";
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +14,11 @@ const Registration = () => {
     email: "",
     userConsent: false,
   });
+  const appUrl = window.location.search;
+  const redirectTo = appUrl.split("=")[1];
+
   const [user, setUser] = useState(null);
+  const history = useHistory();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -53,6 +58,7 @@ const Registration = () => {
           lastName: "",
           email: "",
         });
+        history.push(`/${redirectTo}`);
       } else {
         console.error("User registration error:", response.data);
       }
