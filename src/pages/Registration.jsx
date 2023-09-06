@@ -30,7 +30,7 @@ const Registration = () => {
 
     try {
       const response = await axios.post(
-        "https://dev-84219609.okta.com/api/v1/users?activate=false",
+        "https://dev-84219609.okta.com/api/v1/users?activate=true",
         {
           profile: {
             firstName: formData.firstName,
