@@ -3,6 +3,8 @@ import { Button, Form } from "semantic-ui-react";
 import axios from "axios";
 import AlertMessage from "../components/AlertMessage";
 import TermsConditions from "../components/TermsConditions";
+import logo from "../humber.svg";
+import { Image } from "semantic-ui-react";
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -59,8 +61,11 @@ const Registration = () => {
     }
   };
   return (
-    <div className="general-wrapper">
-      <h1> User Registration</h1>
+    <div className="registration-wrapper">
+      <Image src={logo} size="medium" />
+
+      <h1> Register</h1>
+      <hr style={{ marginBottom: "30px" }} />
       {!!user && (
         <AlertMessage
           header={`User registered!`}
@@ -102,10 +107,15 @@ const Registration = () => {
           />
         </Form.Field>
         <Form.Field>
-          <TermsConditions onAcceptCondition={handleAccept} />
+          <TermsConditions
+            onAcceptCondition={handleAccept}
+            submitted={!!user}
+          />
         </Form.Field>
 
-        <Button type="submit">Submit</Button>
+        <Button style={{ marginTop: "30px" }} type="submit">
+          Submit
+        </Button>
       </Form>
     </div>
   );

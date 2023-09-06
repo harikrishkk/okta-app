@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Accordion, Icon } from "semantic-ui-react";
 import { Checkbox, Form } from "semantic-ui-react";
 
-const TermsConditions = ({ onAcceptCondition }) => {
+const TermsConditions = ({ onAcceptCondition, submitted }) => {
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen((o) => !o);
   };
+
+  useEffect(() => {
+    if (!!submitted) {
+      setOpen(false);
+    }
+  }, [submitted]);
+
   return (
     <>
       <Accordion>

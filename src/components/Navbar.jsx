@@ -42,8 +42,6 @@ const Navbar = ({ setCorsErrorModalOpen }) => {
     <div>
       <Menu fixed="top" inverted>
         <Menu.Item header>
-          <Image size="mini" src={logo} />
-          &nbsp;
           <Link to="/">Humber Okta Demo</Link>
         </Menu.Item>
         <Menu.Item header>

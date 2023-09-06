@@ -55,6 +55,14 @@ body {
   padding-top: 60px;
   margin-top: 30px;
 }
+.registration-wrapper {
+  width: 600px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 80px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
 
 .consent {
   margin-top: 20px;
