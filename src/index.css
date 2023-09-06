@@ -79,3 +79,9 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.accordion.ui .content.active {
+  max-height: 50px;
+  overflow: hidden;
+  overflow-y: scroll;
+}

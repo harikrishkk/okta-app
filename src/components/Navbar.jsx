@@ -46,6 +46,10 @@ const Navbar = ({ setCorsErrorModalOpen }) => {
           &nbsp;
           <Link to="/">Humber Okta Demo</Link>
         </Menu.Item>
+        <Menu.Item header>
+          &nbsp;
+          <Link to="/registration">User registration flow</Link>
+        </Menu.Item>
 
         <Menu.Menu position="right">
           <Menu.Menu position="right">

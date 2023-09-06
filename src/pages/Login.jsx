@@ -6,6 +6,7 @@ import { Image } from "semantic-ui-react";
 
 const Login = ({ config }) => {
   const { oktaAuth, authState } = useOktaAuth();
+
   const onSuccess = (tokens) => {
     oktaAuth.handleLoginRedirect(tokens);
   };

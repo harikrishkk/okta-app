@@ -10,6 +10,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Terms from "./pages/Terms";
 import Conflict from "./pages/Conflict";
+import Registration from "./pages/Registration";
 
 const oktaAuth = new OktaAuth(config.oidc);
 
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/login/callback" component={LoginCallback} />
           <Route path="/terms" component={Terms} />
           <Route path="/conflict" component={Conflict} />
+          <Route path="/registration" component={Registration} />
         </Security>
       </header>
     </div>
