@@ -46,7 +46,7 @@ const Navbar = ({ setCorsErrorModalOpen }) => {
         </Menu.Item>
         <Menu.Item header>
           &nbsp;
-          <Link to="/registration">User registration flow</Link>
+          <Link to="/registration">New User</Link>
         </Menu.Item>
 
         <Menu.Menu position="right">
