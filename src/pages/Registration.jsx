@@ -14,6 +14,7 @@ const Registration = () => {
     email: "",
     userConsent: false,
   });
+  const [redirectUrl, setRedirectURL] = useState("");
 
   const appUrl = window.location.search;
   const redirectTo = appUrl.split("=")[1];
@@ -23,12 +24,16 @@ const Registration = () => {
   const history = useHistory();
 
   useEffect(() => {
+    setRedirectURL(redirectTo);
+  }, [redirectTo]);
+
+  useEffect(() => {
     if (!!user) {
       setTimeout(() => {
-        history.push(`/${redirectTo}`);
+        history.push(`/${redirectUrl}`);
       }, 4000);
     }
-  }, [user, redirectTo, history]);
+  }, [user, redirectUrl, history]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
