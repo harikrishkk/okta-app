@@ -1,6 +1,6 @@
-import React from 'react';
-import { useOktaAuth } from '@okta/okta-react';
-import { Redirect } from 'react-router-dom';
+import React from "react";
+import { useOktaAuth } from "@okta/okta-react";
+import { Redirect } from "react-router-dom";
 
 const Home = () => {
   const { authState } = useOktaAuth();
@@ -12,9 +12,9 @@ const Home = () => {
   return authState &&
     authState.isAuthenticated &&
     authState.idToken.claims &&
-    !authState.idToken.claims.tncAccepted ? (
+    !authState.idToken.claims.userConsent ? (
     <>
-      <Redirect to={{ pathname: '/terms' }} />
+      <Redirect to={{ pathname: "/terms" }} />
     </>
   ) : (
     <>

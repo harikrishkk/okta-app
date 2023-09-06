@@ -1,14 +1,26 @@
-import React from 'react';
-import { Modal, Button } from 'semantic-ui-react';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Modal, Button } from "semantic-ui-react";
+import { useHistory } from "react-router-dom";
+import { useOktaAuth } from "@okta/okta-react";
 
 const PrivacyModal = () => {
   const history = useHistory();
+  const { authState } = useOktaAuth();
+  const [redirectUrl, setRedirectUrl] = useState(false);
+
+  useEffect(() => {
+    if (authState?.idToken?.claims.IsPotentialDuplicate) {
+      setRedirectUrl("/conflict");
+    } else {
+      setRedirectUrl("/success");
+    }
+  }, [authState]);
+
   const handleClose = () => {
-    history.push('/login');
+    history.push("/login");
   };
   const handleConfirm = () => {
-    history.push('/conflict');
+    history.push(redirectUrl);
   };
   return (
     <Modal
