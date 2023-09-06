@@ -64,7 +64,7 @@ const Registration = () => {
       {!!user && (
         <AlertMessage
           header={`User registered!`}
-          message={`The user id is ${user.id} with the status of ${user.status}. The User need to be activated though`}
+          message={`The user id is ${user.id} with the status of ${user.status}. `}
         />
       )}
       <Form onSubmit={handleSubmit}>
