@@ -23,8 +23,9 @@ const Registration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const sswsToken = "00t83Kb-lDIjVUy2Y7jXpBUoxm1pdTTxnG9Z7vioV3";
     const headers = {
-      Authorization: `SSWS ${process.env.REACT_APP_SSWS_TOKEN}`,
+      Authorization: `SSWS ${sswsToken}`,
     };
 
     try {
