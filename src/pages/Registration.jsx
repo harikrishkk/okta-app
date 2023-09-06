@@ -58,7 +58,9 @@ const Registration = () => {
           lastName: "",
           email: "",
         });
-        history.push(`/${redirectTo}`);
+        setTimeout(() => {
+          history.push(`/${redirectTo}`);
+        }, 4000);
       } else {
         console.error("User registration error:", response.data);
       }
