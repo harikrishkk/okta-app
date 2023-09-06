@@ -23,14 +23,13 @@ const Registration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const sswsToken = "00t_PjmAq7If0E8mpUMf4KsEYct_hh3axjScjgwfo6";
     const headers = {
-      Authorization: `SSWS ${sswsToken}`,
+      Authorization: `SSWS ${process.env.REACT_APP_SSWS_TOKEN}`,
     };
 
     try {
       const response = await axios.post(
-        "https://dev-84219609.okta.com/api/v1/users?activate=true",
+        "https://humber-poc-cgi.okta.com/api/v1/users?activate=true",
         {
           profile: {
             firstName: formData.firstName,
