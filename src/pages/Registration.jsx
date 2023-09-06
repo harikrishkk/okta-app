@@ -14,23 +14,26 @@ const Registration = () => {
     email: "",
     userConsent: false,
   });
-  const [user, setUser] = useState(null);
-  const queryParams = new URLSearchParams(window.location.search);
-  const callbackUrl = queryParams.get("redirectTo");
 
+  const appUrl = window.location.search;
+  const redirectTo = appUrl.split("=")[1];
+  console.log(redirectTo);
+
+  const [user, setUser] = useState(null);
   const history = useHistory();
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
 
   useEffect(() => {
     if (!!user) {
       setTimeout(() => {
-        history.push(`/${callbackUrl}`);
+        history.push(`/${redirectTo}`);
       }, 4000);
     }
-  }, [user, callbackUrl, history]);
+  }, [user, redirectTo, history]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleAccept = (isAccepted) => {
     setFormData({ ...formData, userConsent: isAccepted });
@@ -66,6 +69,9 @@ const Registration = () => {
           lastName: "",
           email: "",
         });
+        setTimeout(() => {
+          history.push(`/${redirectTo}`);
+        }, 4000);
       } else {
         console.error("User registration error:", response.data);
       }
