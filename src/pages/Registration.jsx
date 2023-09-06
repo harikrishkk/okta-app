@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 import axios from "axios";
 import AlertMessage from "../components/AlertMessage";
@@ -14,15 +14,23 @@ const Registration = () => {
     email: "",
     userConsent: false,
   });
-  const appUrl = window.location.search;
-  const redirectTo = appUrl.split("=")[1];
-
   const [user, setUser] = useState(null);
+  const queryParams = new URLSearchParams(window.location.search);
+  const callbackUrl = queryParams.get("redirectTo");
+
   const history = useHistory();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  useEffect(() => {
+    if (!!user) {
+      setTimeout(() => {
+        history.push(`/${callbackUrl}`);
+      }, 4000);
+    }
+  }, [user, callbackUrl, history]);
 
   const handleAccept = (isAccepted) => {
     setFormData({ ...formData, userConsent: isAccepted });
@@ -58,9 +66,6 @@ const Registration = () => {
           lastName: "",
           email: "",
         });
-        setTimeout(() => {
-          history.push(`/${redirectTo}`);
-        }, 4000);
       } else {
         console.error("User registration error:", response.data);
       }
