@@ -30,8 +30,9 @@ const Conflict = () => {
       })
       .catch((err) => {
         setProgress(false);
-        setEmailSuccess(false);
-        console.error("ERR", err);
+        // SETTING TRUE IN CASE IF THE REQUEST TIMESOUT
+        setEmailSuccess(true);
+        console.log("INSIDE CATCH BLOCK");
       });
   };
 
