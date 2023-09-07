@@ -12,16 +12,18 @@ const Registration = () => {
     firstName: "",
     lastName: "",
     email: "",
-    userConsent: false,
   });
   const [redirectUrl, setRedirectURL] = useState("");
+  const [checked, setChecked] = useState(false);
 
   const appUrl = window.location.search;
   const redirectTo = appUrl.split("=")[1];
-  console.log(redirectTo);
 
   const [user, setUser] = useState(null);
   const history = useHistory();
+
+  const checkDisabled =
+    !formData.firstName || !formData.lastName || !formData.email || !checked;
 
   useEffect(() => {
     setRedirectURL(redirectTo);
@@ -41,7 +43,7 @@ const Registration = () => {
   };
 
   const handleAccept = (isAccepted) => {
-    setFormData({ ...formData, userConsent: isAccepted });
+    setChecked((v) => !v);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,7 +62,7 @@ const Registration = () => {
             lastName: formData.lastName,
             email: formData.email,
             login: formData.email,
-            userConsent: formData.userConsent,
+            userConsent: checked,
           },
         },
         { headers }
@@ -90,6 +92,13 @@ const Registration = () => {
 
       <h1> Register</h1>
       <hr style={{ marginBottom: "30px" }} />
+      <p>
+        Please complete the short form below to register for access to Asset
+        Bank.
+      </p>
+      <p className="reqd">
+        <span className="strongText">*</span> Indicates required field.
+      </p>
       {!!user && (
         <AlertMessage
           header={`User registered!`}
@@ -98,7 +107,7 @@ const Registration = () => {
       )}
       <Form onSubmit={handleSubmit}>
         <Form.Field>
-          <label>First Name</label>
+          <label>*&nbsp;First Name</label>
           <input
             type="text"
             id="firstName"
@@ -109,7 +118,7 @@ const Registration = () => {
           />
         </Form.Field>
         <Form.Field>
-          <label>Last Name</label>
+          <label>*&nbsp;Last Name</label>
           <input
             type="text"
             id="lastName"
@@ -120,7 +129,7 @@ const Registration = () => {
           />
         </Form.Field>
         <Form.Field>
-          <label>Email</label>
+          <label>*&nbsp;Email</label>
           <input
             type="text"
             id="Email"
@@ -137,7 +146,12 @@ const Registration = () => {
           />
         </Form.Field>
 
-        <Button style={{ marginTop: "30px" }} type="submit">
+        <Button
+          primary
+          disabled={checkDisabled}
+          style={{ marginTop: "30px" }}
+          type="submit"
+        >
           Submit
         </Button>
       </Form>

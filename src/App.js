@@ -43,7 +43,7 @@ const App = () => {
           <Route path="/terms" component={Terms} />
           <Route path="/conflict" component={Conflict} />
           <Route path="/registration" component={Registration} />
-          <Route path="/newapp" component={App2} />
+          <Route path="/destiny" component={App2} />
           <Route path="/success" component={LoginSuccess} />
         </Security>
       </header>

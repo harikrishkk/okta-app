@@ -56,12 +56,14 @@ body {
   margin-top: 30px;
 }
 .registration-wrapper {
-  width: 600px;
+  width: 400px;
   padding: 20px;
   margin: 0 auto;
   margin-top: 80px;
-  border-radius: 10px;
   border: 1px solid #ccc;
+  -webkit-box-shadow: 10px 10px 49px -16px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 49px -16px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 49px -16px rgba(0, 0, 0, 0.75);
 }
 
 .consent {
@@ -89,7 +91,40 @@ body {
 }
 
 .accordion.ui .content.active {
-  max-height: 50px;
+  max-height: 80px;
   overflow: hidden;
   overflow-y: scroll;
+  border: 1px solid #ccc;
+}
+
+.destiny-wrapper {
+  background: url("./destiny.png");
+  min-height: 100vh;
+  min-width: 100vw;
+  object-fit: cover;
+  padding-top: 15px !important;
+}
+.destiny-link {
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.tnccontent {
+  padding: 5px;
+}
+
+.strongText {
+  font-weight: bold;
+}
+
+.reqd {
+  font-style: italic;
+}
+
+.custom-link {
+  color: #000;
+  margin: 0 auto;
+  font-weight: bold;
 }

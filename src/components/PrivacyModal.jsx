@@ -9,7 +9,10 @@ const PrivacyModal = () => {
   const [redirectUrl, setRedirectUrl] = useState(false);
 
   useEffect(() => {
-    if (authState?.idToken?.claims.IsPotentialDuplicate) {
+    if (
+      authState?.idToken?.claims.IsPotentialDuplicate === "true" ||
+      authState?.idToken?.claims.IsPotentialDuplicate === true
+    ) {
       setRedirectUrl("/conflict");
     } else {
       setRedirectUrl("/success");

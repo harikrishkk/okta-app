@@ -19,10 +19,10 @@ const TermsConditions = ({ onAcceptCondition, submitted }) => {
       <Accordion>
         <Accordion.Title active={open} onClick={handleClick}>
           <Icon name="dropdown" />
-          Accept the terms & Conditions below
+          *&nbsp;Agreement to terms & Conditions
         </Accordion.Title>
         <Accordion.Content active={open}>
-          <div>
+          <div className="tnccontent">
             By using our services, you acknowledge and consent to the
             collection, processing, and storage of your data within the secure
             confines of Humber College's data center. We are committed to
@@ -40,7 +40,7 @@ const TermsConditions = ({ onAcceptCondition, submitted }) => {
             <hr />
             <Form.Field>
               <Checkbox
-                onChange={() => onAcceptCondition(true)}
+                onChange={(e) => onAcceptCondition("changed")}
                 label="I agree to the Terms and Conditions"
               />
             </Form.Field>
